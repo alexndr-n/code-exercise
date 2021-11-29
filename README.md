@@ -4,6 +4,8 @@
 
 ## Populate .env
 
-## Run make build-start
+## Have Docker installed
+
+## Run "make build-start"
 
 ## Go to http://localhost
