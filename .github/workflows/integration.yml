@@ -1,0 +1,18 @@
+name: Node Continuous Integration
+
+# Trigger
+on:
+  pull_request:
+    branches: [master]
+  push:
+
+# Actions
+jobs:
+  test_pull_request:
+    runs-on: ubuntu-latest #Actions server environment
+    steps:
+      - uses: actions/checkout@v2 #Bring our code
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.9
+      - run: make test-all
