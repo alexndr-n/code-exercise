@@ -18,6 +18,10 @@ test-all:
 compose:
 	docker-compose up -d --force-recreate 
 
+build-start:
+	docker-compose build
+	docker-compose up -d --force-recreate 
+
 down-compose-dev:
 	docker-compose -f docker-compose.yml down
 

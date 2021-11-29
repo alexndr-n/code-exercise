@@ -3,8 +3,8 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.sequelize.transaction(t => {
       return Promise.all([
-        queryInterface.removeColumn('Users', 'firstName', { transaction: t }),
-        queryInterface.removeColumn('Users', 'lastName', { transaction: t }),
+        queryInterface.removeColumn('Users', 'first_name', { transaction: t }),
+        queryInterface.removeColumn('Users', 'last_name', { transaction: t }),
 
       ]);
     });
@@ -12,14 +12,14 @@ module.exports = {
   down: async (queryInterface, Sequelize) => {
     return queryInterface.sequelize.transaction(t => {
       return Promise.all([
-        queryInterface.addColumn('User', 'firstName', {
+        queryInterface.addColumn('User', 'first_name', {
           type: Sequelize.DataTypes.STRING,
           allowNull: false,
           validate: {
             notEmpty: true,
           },
         }, { transaction: t }),
-        queryInterface.addColumn('User', 'lastName', {
+        queryInterface.addColumn('User', 'last_name', {
           type: Sequelize.DataTypes.STRING,
           allowNull: false,
           validate: {
